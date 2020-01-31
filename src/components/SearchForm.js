@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import CharacterList from "./CharacterList";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
   const [searchResult, setSearchResult] = useState("");
-
+  console.log(searchResult);
   const changeHandler = (event) => {
     setSearchResult(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
+    setSearchResult(event.target.value);
+    props.setTheCharacter(searchResult);
   };
 
   return (
@@ -24,7 +25,6 @@ export default function SearchForm() {
           placeholder="Example: Rick Sanchez"
         />
       </form>
-      <CharacterList searchResult={searchResult} />
     </section>
   );
 }

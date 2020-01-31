@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
-export default function CharacterList(props) {
+export default function CharacterList() {
   const [theCharacter, setTheCharacter] = useState([]);
-  setTheCharacter(props.searchResult);
+  console.log(theCharacter);
+
   useEffect(() => {
     axios
       .get("https://rickandmortyapi.com/api/character/")
       .then((res) => {
         console.log(res.data.results);
-        const nameMatch = setTheCharacter(res.data.results.filter());
+        setTheCharacter(res.data.results);
       })
       .catch((err) => {
-        //console.log(err);
+        console.log(err);
       });
   }, []);
 
   return (
     <section className="character-list">
-      {theCharacter.map((all) => (
-        <CharacterCard all={all} />
-      ))}
+      <SearchForm setTheCharacter={setTheCharacter} />
+      <CharacterCard theCharacter={theCharacter} />
     </section>
   );
 }

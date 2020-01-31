@@ -1,18 +1,16 @@
 import React from "react";
 
 export default function CharacterCard(props) {
+  console.log("CharacterCard", props.theCharacter);
+
   return (
     <div>
-      <div key={props.all.id}>
-        <h2>{props.all.name}</h2>
-        <p>
-          Status: {props.all.status}
-          <br />
-          Species: {props.all.species}
-          <br />
-          Gender: {props.all.gender}
-        </p>
-      </div>
+      {props.theCharacter.map((all) => (
+        <div id={all.id}>
+          <h2>{all.name}</h2>
+          <p>{all.species}</p>
+        </div>
+      ))}
     </div>
   );
 }
