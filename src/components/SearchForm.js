@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import CharacterList from "./CharacterList";
 
 export default function SearchForm() {
   const [searchResult, setSearchResult] = useState("");
 
   const changeHandler = (event) => {
-    setSearchResults(event.target.value);
+    setSearchResult(event.target.value);
   };
 
   const submitHandler = (event) => {
@@ -13,16 +14,17 @@ export default function SearchForm() {
 
   return (
     <section className="search-form">
-      <form onSubmit={}>
-        <label />
+      <form onSubmit={submitHandler}>
+        <label htmlFor="search">Search: </label>
         <input
           id="search"
           name="search"
           onChange={changeHandler}
-          value="searchResult"
+          value={searchResult}
           placeholder="Example: Rick Sanchez"
         />
       </form>
+      <CharacterList searchResult={searchResult} />
     </section>
   );
 }

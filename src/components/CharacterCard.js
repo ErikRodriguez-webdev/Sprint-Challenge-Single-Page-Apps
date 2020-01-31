@@ -3,16 +3,16 @@ import React from "react";
 export default function CharacterCard(props) {
   return (
     <div>
-      {/* <div>
-        <h2>{props.item.name}</h2>
+      <div key={props.all.id}>
+        <h2>{props.all.name}</h2>
         <p>
-          {props.item.status}
+          Status: {props.all.status}
           <br />
-          {props.item.species}
+          Species: {props.all.species}
           <br />
-          {props.item.gender}
+          Gender: {props.all.gender}
         </p>
-      </div> */}
+      </div>
     </div>
   );
 }
