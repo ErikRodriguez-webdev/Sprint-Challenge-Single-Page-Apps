@@ -11,13 +11,16 @@ export default function CharacterList() {
     axios
       .get("https://rickandmortyapi.com/api/character/")
       .then((res) => {
-        console.log(res.data.results);
-        setTheCharacter(res.data.results);
+        console.log(res);
+        const allNames = res.data.results.map(
+          theCharacter.toLowerCase().filter()
+        );
+        setTheCharacter(allNames);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [theCharacter]);
 
   return (
     <section className="character-list">

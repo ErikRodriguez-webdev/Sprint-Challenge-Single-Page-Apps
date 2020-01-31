@@ -3,6 +3,9 @@ import React, { useState } from "react";
 export default function SearchForm(props) {
   const [searchResult, setSearchResult] = useState("");
   console.log(searchResult);
+
+  props.setTheCharacter(searchResult);
+
   const changeHandler = (event) => {
     setSearchResult(event.target.value);
   };
@@ -10,7 +13,6 @@ export default function SearchForm(props) {
   const submitHandler = (event) => {
     event.preventDefault();
     setSearchResult(event.target.value);
-    props.setTheCharacter(searchResult);
   };
 
   return (

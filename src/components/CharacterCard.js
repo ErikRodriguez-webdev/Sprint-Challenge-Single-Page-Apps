@@ -5,12 +5,12 @@ export default function CharacterCard(props) {
 
   return (
     <div>
-      {props.theCharacter.map((all) => (
+      {/* {props.theCharacter.map((all) => (
         <div id={all.id}>
           <h2>{all.name}</h2>
           <p>{all.species}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
