@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 
 export default function SearchForm(props) {
-  const [searchResult, setSearchResult] = useState("");
-  console.log(searchResult);
-
-  props.setTheCharacter(searchResult);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const changeHandler = (event) => {
-    setSearchResult(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    setSearchResult(event.target.value);
+    setSearchTerm(event.target.value);
+    props.setSearchWord(setSearchTerm);
   };
 
   return (
@@ -22,10 +20,13 @@ export default function SearchForm(props) {
         <input
           id="search"
           name="search"
+          type="text"
           onChange={changeHandler}
-          value={searchResult}
+          value={searchTerm}
           placeholder="Example: Rick Sanchez"
         />
+
+        <button type="submit">Submit</button>
       </form>
     </section>
   );
