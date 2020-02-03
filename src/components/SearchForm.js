@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function SearchForm(props) {
-  const [searchTerm, setSearchTerm] = useState("");
-
   const changeHandler = (event) => {
-    setSearchTerm(event.target.value);
+    props.setSearchWord(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    setSearchTerm(event.target.value);
-    props.setSearchWord(setSearchTerm);
+    props.setSearchWord(event.target.value);
   };
 
   return (
@@ -22,7 +19,7 @@ export default function SearchForm(props) {
           name="search"
           type="text"
           onChange={changeHandler}
-          value={searchTerm}
+          value={props.searchWord}
           placeholder="Example: Rick Sanchez"
         />
 

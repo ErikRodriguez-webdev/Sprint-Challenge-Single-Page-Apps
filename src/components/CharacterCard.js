@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CharacterCard(props) {
-  //console.log("CharacterCard", props);
+  console.log("CharacterCard", props);
 
   return (
     <div>
