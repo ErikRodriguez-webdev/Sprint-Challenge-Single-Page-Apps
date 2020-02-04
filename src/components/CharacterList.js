@@ -14,7 +14,7 @@ export default function CharacterList() {
         console.log("API Success", res.data.results);
         setTheCharacter(
           res.data.results.filter((items) => {
-            return items.name.toLowerCase().includes(searchWord);
+            return items.name.toLowerCase().includes(searchWord.toLowerCase());
           })
         );
       })
@@ -26,7 +26,9 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       <SearchForm searchWord={searchWord} setSearchWord={setSearchWord} />
-      <CharacterCard theCharacter={theCharacter} />
+      {theCharacter.map((individual) => (
+        <CharacterCard key={individual.id} theCharacter={individual} />
+      ))}
     </section>
   );
 }

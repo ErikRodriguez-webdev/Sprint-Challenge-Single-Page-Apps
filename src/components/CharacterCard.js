@@ -1,15 +1,21 @@
 import React from "react";
+import styled from "styled-components";
+
+const CardDiv = styled.div`
+  width: 75%;
+  margin: 1% 10%;
+`;
+
+const CardH1 = styled.h1`
+  text-align: center;
+`;
 
 export default function CharacterCard(props) {
-  console.log("CharacterCard", props);
-
   return (
     <div>
-      {props.theCharacter.map((all) => (
-        <div id={all.id}>
-          <h2>{all.name}</h2>
-        </div>
-      ))}
+      <CardDiv id={props.theCharacter.id}>
+        <CardH1>{props.theCharacter.name}</CardH1>
+      </CardDiv>
     </div>
   );
 }

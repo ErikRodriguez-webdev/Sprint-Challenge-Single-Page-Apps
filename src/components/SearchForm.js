@@ -7,7 +7,6 @@ export default function SearchForm(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.setSearchWord(event.target.value);
   };
 
   return (
@@ -22,8 +21,6 @@ export default function SearchForm(props) {
           value={props.searchWord}
           placeholder="Example: Rick Sanchez"
         />
-
-        <button type="submit">Submit</button>
       </form>
     </section>
   );
